@@ -24,15 +24,10 @@
         
         <form id="myForm" method="post" name="myForm">
             {% csrf_token %}
-            {{ form.non_field_errors}}
-
+            
             <fieldset>
-            Su nombre:<br />
-            {{ form.name }}
-            Su mensaje:<br />
-            {{ form.message }}
-            <br />
-            <input type="submit" value="Enviar mensaje" class="submit_button" />
+                {{ form }}
+                <input type="submit" value="Enviar mensaje" class="submit_button" />
             </fieldset>
         </form>
         

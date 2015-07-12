@@ -2,3 +2,6 @@ inmobiliariaVivienda/local_settings.py
 media/
 *.pyc
 *.sqlite3
+administrador/static/admin/
+administrador/static/bootstrap_admin/
+administrador/static/no usados/

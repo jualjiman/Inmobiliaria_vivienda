@@ -2,7 +2,6 @@ Django==1.8.2
 Pillow==2.6.1
 argparse==1.2.1
 bootstrap-admin==0.3.3
-gunicorn==19.1.1
 setproctitle==1.1.8
 sorl-thumbnail==11.12.1b
 ipython

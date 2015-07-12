@@ -4,6 +4,7 @@ from django.core.mail import send_mail
 
 class ContactForm(forms.Form):
     name = forms.CharField(
+        label='Su nombre:',
         widget=forms.TextInput(
             attrs={
                 'class': 'textfield'
@@ -12,6 +13,7 @@ class ContactForm(forms.Form):
     )
 
     message = forms.CharField(
+        label='Su mensaje:',
         widget=forms.Textarea(
             attrs={
                 'class': 'contact_textarea'
@@ -29,9 +31,9 @@ class ContactForm(forms.Form):
         )
 
         send_mail(
-            'Mensaje desde Pagina web ITA',
+            'Mensaje desde Pagina web Inmobiliariavivienda.com',
             message,
-            'ITA Quejas y sujerencias <mailer@jualjiman.com>',
+            "Jualjiman's mailer <mailer@jualjiman.com>",
             ['jualjiman@gmail.com', ],
             fail_silently=False
         )
