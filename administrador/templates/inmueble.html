@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load staticfiles thumbnail %}
+
+{% block aditional_styles %}
+<link rel="stylesheet" href="{% static "scripts/prettyphoto/prettyPhoto.css" %}" type="text/css" media="screen" title="prettyPhoto main stylesheet" />
+{% endblock %}
+
+{% block main_content %}
+<div class="clean"></div>
+<div id="content">
+    <div class="portfolio_block">
+        <div class="left_column">
+            <div class="portfolio_img">
+            {% thumbnail inmueble.imagen_principal '856x480' crop='center' as img %}
+            <a href="{{ img.url }}" rel="prettyPhoto">
+                {% thumbnail inmueble.imagen_principal '600x300' crop='center' as thumb %}
+                <img src="{{ thumb.url }}" alt="" />
+                {% endthumbnail %}
+            </a>
+            {% endthumbnail %}
+            </div>
+        </div>
+        <div class="right_column">
+            <h2>{{ inmueble.nombre }}</h2>
+            <div style="text-align:justify;">
+                {{ inmueble.descripcion|linebreaks  }}
+            </div>
+        </div>
+    </div>
+    <div class="clean"></div>
+    {% thumbnail inmueble.imagen1 '856x480' crop='center' as img %}
+    <div class="portf3_left_column">
+        <div class="portfolio_img">
+            <a href="{{ img.url }}" rel="prettyPhoto">
+                {% thumbnail inmueble.imagen1 '280x150' crop='center' as thumb %}
+                <img src="{{ thumb.url }}" alt="" />
+                {% endthumbnail %}
+            </a>
+        </div>
+    </div>
+    {% endthumbnail %}
+    {% thumbnail inmueble.imagen2 '856x480' crop='center' as img %}
+    <div class="portf3_left_column">
+        <div class="portfolio_img">
+            <a href="{{ img.url }}" rel="prettyPhoto">
+                {% thumbnail inmueble.imagen2 '280x150' crop='center' as thumb %}
+                <img src="{{ thumb.url }}" alt="" />
+                {% endthumbnail %}
+            </a>
+        </div>
+    </div>
+    {% endthumbnail %}
+    {% thumbnail inmueble.imagen3 '856x480' crop='center' as img %}
+    <div class="portf3_left_column">
+        <div class="portfolio_img">
+            <a href="{{ img.url }}" rel="prettyPhoto">
+                {% thumbnail inmueble.imagen3 '280x150' crop='center' as thumb %}
+                <img src="{{ thumb.url }}" alt="" />
+                {% endthumbnail %}
+            </a>
+        </div>
+    </div>
+    {% endthumbnail %}
+</div>
+{% endblock %}
+
+{% block aditional_scripts %}
+<script type="text/javascript" src="{% static "scripts/effects.js" %}"></script>
+<script src="{% static "scripts/prettyphoto/jquery.prettyPhoto.js" %}" type="text/javascript"></script>
+<script type="text/javascript">
+jQuery.noConflict();
+        jQuery(document).ready(function(){
+            jQuery("a[rel^='prettyPhoto']").prettyPhoto({theme:'facebook'});
+        });
+        </script>
+{% endblock %}

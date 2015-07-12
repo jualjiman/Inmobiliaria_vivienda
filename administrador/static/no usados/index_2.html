@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<title>Untitled Document</title>
+<link href="reset.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link href="colors_css/color1.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./scripts/jquery.min.js"></script>
+
+<script type="text/javascript" src="scripts/animate.js"></script> 
+
+<script type="text/javascript" src="scripts/fade/jquery.cycle.all.latest.js">
+</script>
+<script type="text/javascript">
+jQuery.noConflict();
+jQuery(document).ready(function() {
+    jQuery('.slideshow').cycle({
+		fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+	});
+});
+</script>
+
+
+<script type="text/javascript" src="scripts/cufon/cufon-yui.js">
+</script>
+<script type="text/javascript" src="scripts/cufon/Diavlo_Book_400.font.js">
+</script>
+<script type="text/javascript" src="scripts/jquery.corner.js">
+</script>
+<script type="text/javascript">
+jQuery.noConflict();
+    jQuery('.slider').corner("8px");
+</script>
+<script type="text/javascript">
+			Cufon.replace ('h1') ('h2') ('h3') ('h4') ('h5') ('h6') ('.menu',{hover:true});
+		</script>
+<link href="scripts/newsslider/slider.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="scripts/newsslider/slider.js"></script>
+
+ 
+</head>
+<body onload="autoScroll('newsslider','newssection',5,true)">
+
+	<div id="top">
+		<div id="logo"></div>
+		<div id="top_right">
+			
+
+<div id="menu2" class="menu">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="blog.html">Blog</a></li>
+				<li><a href="portfolio.html">Portfolio</a></li>
+				<li><a href="contacts.html">Support</a></li>
+			</ul>
+	  </div>
+
+
+<div class="pagelinkdiv">Megapolis template home page sample</div>
+<div class="pagelinkdiv">Megapolis template about page sample</div>
+<div class="pagelinkdiv">Welcome to Megapolis blog page</div>
+<div class="pagelinkdiv">View Megapolis portfolio pages demo</div>
+<div class="pagelinkdiv">Working Ajax contact form here</div>
+			
+			
+		</div>
+		<!-- end top_right -->
+<br style="clear:both" />		
+<div class="searchform">
+				<form method="get" action="">
+					<fieldset>
+					<input type="text" name="s" class="searchfield" value="Start Searching..." onfocus="if(this.value=='Start Searching...') this.value=''" onblur="if(this.value=='') this.value='Start Searching...'" />
+					<input type="image" src="img/searchbutton.png" class="lens" />
+					</fieldset>
+				</form>
+			</div>
+			<!-- end searchform -->
+			<div class="socialicons"><p><a href="#"><img src="img/social_icons/1.png" alt="" class="social_icon" /></a> <a href="#"><img src="img/social_icons/2.png" alt="" class="social_icon" /></a> <a href="#"><img src="img/social_icons/3.png" alt="" class="social_icon" /></a> <a href="#"><img src="img/social_icons/4.png" alt="" class="social_icon" /></a> <a href="#"><img src="img/social_icons/5.png" alt="" class="social_icon" /></a> <a href="#"><img src="img/social_icons/6.png" alt="" class="social_icon" /></a></p></div>
+	</div>
+	<!-- end top -->
+	
+	
+	
+	<div class="slider_container">
+	<div class="slider_shadow_top"></div>
+	<div class="slider">
+	<div class="slideshow"> <img src="slides/1.jpg" width="950" height="276" /> <img src="slides/2.jpg" width="950" height="276" /> <img src="slides/3.jpg" width="950" height="276" /> <img src="slides/4.jpg" width="950" height="276" /> </div>
+	</div>
+	<div class="slider_shadow_bottom"></div>
+	</div>
+	
+	<div id="container">
+	<div id="welcome">
+		<div class="about_text">
+			<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt laboredolore magna aliqua.</h1>
+		</div>
+		<div class="news">
+			<div class="news_head">
+				<h2>Latest News</h2>
+			</div>
+			<div class="controls"><img src="img/next.gif" alt="" class="next_button" onmousedown="scrollContent('newsslider',-1)" onmouseup="cancelScroll('newsslider')" /><img src="img/prev.gif" alt="" onmousedown="scrollContent('newsslider',1)" onmouseup="cancelScroll('newsslider')" /></div>
+			<div class="newsslider">
+				<div class="newsslidercontent" id="newsslider">
+					<div id="newssection-1" class="newssection upper">
+						<div class="news_date">Jun.12<br />
+							2010</div>
+						<div class="news_text">Lorem ipsum dolor sit amet, consectetur adipisicing
+							elit, sed do eiusmod tempor incididunt laboredolore magna aliqua [...]</div>
+					</div>
+					<div id="newssection-2" class="newssection upper">
+						<div class="news_date">Jun.11<br />
+							2010</div>
+						<div class="news_text">Lorem ipsum dolor sit amet, consectetur adipisicing
+							elit, sed do eiusmod tempor incididunt laboredolore magna aliqua [...]</div>
+					</div>
+					<div id="newssection-3" class="newssection">
+						<div class="news_date">Jun.10<br />
+							2010</div>
+						<div class="news_text">Lorem ipsum dolor sit amet, consectetur adipisicing
+							elit, sed do eiusmod tempor incididunt laboredolore magna aliqua [...]</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end news -->
+	</div>
+	<!-- end welcome div -->
+</div>
+<!-- end container -->
+<div class="clean"></div>
+<div class="slider_shadow_bottom"></div>
+<div class="services">
+	<div class="services_container">
+		<div class="service1">
+			<h2>Browsers Compatible</h2>
+			<p><img src="img/browsers.png" alt="" width="228" height="48" /></p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt laboredolore magna aliqua. Ut enim ad minim veniam, quisnos
+				trud exercitation ullamco laboris...</p>
+		</div>
+		<div class="service2">
+			<h2>jQuery Dynamic Features</h2>
+			<p><img src="img/jquery.png" alt="" width="228" height="48" /></p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt laboredolore magna aliqua. Ut enim ad minim veniam, quisnos
+				trud...</p>
+		</div>
+		<div class="service3"> 			<h2>Other Features</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt laboredolore magna aliqua...</p>
+				<br />
+				<ul>
+				<li>5 Color schemes</li>
+				<li>Working Ajax Contact form</li>
+				<li>Homepage News rotator</li>
+				<li>Creative web 2.0 style design</li>
+				</ul>
+		</div>
+		<br style="clear:both" />
+		<div class="slider_shadow_bottom"></div>
+	</div><br style="clear:both" />
+	<!-- end services_container -->
+</div>
+<!-- end services -->
+<div id="content">
+	<div class="left_column">
+		<h2>Lorem ipsum header</h2>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt laboredolore magna aliqua. Ut enim ad minim veniam, quisnos
+		trud exercitation ullamco laboris. Lorem ipsum dolor sit amet, consectetur
+		adipisicing elit, sed do eiusmod tempor incididunt laboredolore magna aliqua.
+		Ut enim ad minim veniam, quisnos trud exercitation ullamco laboris </div>
+	<div class="right_column">
+		<h2>About me</h2>
+		<div class="author_photo"><img src="img/author.jpg" alt="" /></div>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt laboredolore magna aliqua. Ut enim ad minim veniam, quisnos
+		trud...
+		<p style="float:right"><br />
+			<b>John Doe. Web Designer</b></p>
+	</div>
+</div>
+<!-- end content -->
+<div class="clean"></div>
+<div id="footer">
+	<div class="footer_container">
+		<div class="left_column">
+			<h3>The title here</h3>
+			<span class="footer_desc">Short description goes here</span>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt laboredolore magna aliqua. Ut enim ad minim veniam, quisnos
+				trud exercitation ullamco laboris. Lorem ipsum dolor sit amet, consectetur
+				adipisicing elit, sed do eiusmod tempor incididunt...</p>
+			<br />
+			<h3>Flickr Images</h3>
+			<span class="footer_desc">Short description goes here</span>
+			<br style="clear:both" />
+			<div class="flickrimage"><a href="#"><img src="img/flickr_thumb.png" alt="" /></a></div>
+			<div class="flickrimage"><a href="#"><img src="img/flickr_thumb.png" alt="" /></a></div>
+			<div class="flickrimage"><a href="#"><img src="img/flickr_thumb.png" alt="" /></a></div>
+			<div class="flickrimage"><a href="#"><img src="img/flickr_thumb.png" alt="" /></a></div>
+			<div class="flickrimage"><a href="#"><img src="img/flickr_thumb.png" alt="" /></a></div>
+			<div class="flickrimage"><a href="#"><img src="img/flickr_thumb.png" alt="" /></a></div>
+			<div class="flickrimage"><a href="#"><img src="img/flickr_thumb.png" alt="" /></a></div>
+			<div class="flickrimage"><a href="#"><img src="img/flickr_thumb.png" alt="" /></a></div>
+			
+		</div>
+		<div class="right_column">
+			<h3>The title here</h3>
+			<span class="footer_desc">Short description goes here</span>
+			<ul>
+				<li><a href="#">Lorem ipsum dolore</a></li>
+				<li><a href="#">Lorem ipsum dolore</a></li>
+				<li><a href="#">Lorem ipsum dolore</a></li>
+				<li><a href="#">Lorem ipsum dolore</a></li>
+				<li><a href="#">Lorem ipsum dolore</a></li>
+			</ul>
+		</div>
+		<div class="bottom_menu">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="blog.html">Blog</a></li>
+				<li><a href="portfolio.html">Portfolio</a></li>
+				<li><a href="contacts.html">Contacts</a></li>
+			</ul>
+			<span class="copyrights">&copy; 2010 | Your site copyrights</span> </div>
+		<div class="clean"></div>
+	</div>
+	<!-- end footer_container -->
+</div>
+<!-- end footer -->
+</body>
+</html>

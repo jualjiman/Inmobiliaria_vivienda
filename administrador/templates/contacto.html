@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load staticfiles thumbnail %}
+
+{% block aditional_styles %}
+<link rel="stylesheet" href="{% static "scripts/prettyphoto/prettyPhoto.css" %}" type="text/css" media="screen" title="prettyPhoto main stylesheet" />
+{% endblock %}
+
+{% block main_content %}
+<div id="welcome_to">
+    <div class="welcome_to_container"> <img src="{% static "img/icons/contacts.png" %}" alt="" class="icon" />
+        <h1>Contactanos</h1>
+        <p>Dejamos a tu alcance nuestros datos para que puedas contactarnos fácilmente.</p>
+    </div>
+    <div class="welcome_bottom_shadow"></div>
+</div>
+
+<div class="clean"></div>
+<div id="content">
+<div class="left_column">
+        <h1>Mandanos un mensaje</h1>
+        <div class="description">Por favor llene el siguiente formulario</div>
+        <div class="clean"></div>
+        <div id="formmessage"></div>
+        
+        <form id="myForm" method="post" name="myForm">
+            {% csrf_token %}
+            {{ form.non_field_errors}}
+
+            <fieldset>
+            Su nombre:<br />
+            {{ form.name }}
+            Su mensaje:<br />
+            {{ form.message }}
+            <br />
+            <input type="submit" value="Enviar mensaje" class="submit_button" />
+            </fieldset>
+        </form>
+        
+        <br />
+    </div>
+    <!-- end left_column -->
+    <div class="sidebar">
+        <h2>Donde estamos ubicados</h2>
+        <div class="googlemap">
+        <iframe width="260" height="255" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com.mx/?ie=UTF8&amp;t=m&amp;ll=16.835761,-99.893532&amp;spn=0.083795,0.089264&amp;z=12&amp;output=embed"></iframe>
+        </div>
+        
+        <br style="clear:both" />
+        <h2>Informacion</h2>
+        Oficina: 7442186097 <br/>
+        Nextel:  72*1042529*1<br/>
+        Celular: 7442250845
+        
+        <br style="clear:both" />
+    </div>
+    <!-- end sidebar -->
+    <div class="clean"></div>
+</div>
+{% endblock %}
+
+{% block aditional_scripts %}
+{% endblock %}

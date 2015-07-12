@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load staticfiles thumbnail %}
+
+{% block aditional_scripts %}
+{% endblock %}
+
+{% block main_content %}
+<div id="welcome_to">
+    <div class="welcome_to_container">
+        <img src="{% static 'img/icons/portfolio.png' %}" alt="" class="icon" />
+        <h1>{{ catalogo.nombre }}</h1>
+        <p></p>
+    </div>
+    <div class="welcome_bottom_shadow"></div>
+</div>
+<div class="clean"></div>
+<div id="content"> 
+    {% for inmueble in inmuebles %}
+    <div class="{% cycle 'portf3_left_column' 'portf3_center_column' 'portf3_right_column' %}">
+        <h2>{{ inmueble.nombre }}</h2>
+        <div class="portfolio_img">
+            <a href="{% url 'inmueble' inmueble.slug %}">
+                {% thumbnail inmueble.imagen_principal '280x150' crop='center' as im %}
+                <img src="{{ im.url }}" alt="{{ inmueble.nombre }}" />
+                {% endthumbnail %}
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="clean"></div>
+</div>
+{% endblock %}

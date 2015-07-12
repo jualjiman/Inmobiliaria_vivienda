@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load staticfiles thumbnail %}
+
+{% block aditional_scripts %}
+{% endblock %}
+
+{% block main_content %}
+<div id="welcome_to">
+    <div class="welcome_to_container"> <img src="{% static "img/icons/portfolio.png" %}" alt="" class="icon" />
+        <h1>Portafolio</h1>
+        <p>Enseguida se muestran las categorías de inmuebles que se encuentran en oferta.</p>
+    </div>
+    <div class="welcome_bottom_shadow"></div>
+</div>
+
+<div class="clean"></div>
+<div id="content">
+    {% for catalogo in catalogos %}
+        {% if catalogo.inmuebles_count > 0 %}
+        <div class="{% cycle 'portf_left_column' 'portf_right_column' %}">
+            <h2>{{ catalogo.nombre }}</h2>
+            <div class="description"></div>
+            <div class="portfolio_img">
+                <a href="{% url 'catalogo' catalogo.slug %}" title="{{ catalogo.nombre }}">
+                    {% thumbnail catalogo.inmueble_demo.imagen_principal '440x200' crop='center' as im %}
+                    <img src="{{ im.url  }}" alt="{{ catalogo.nombre }}" />
+                    {% empty %}
+                    {% endthumbnail %}
+                </a>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+<div class="clean"></div>
+</div>
+{% endblock %}

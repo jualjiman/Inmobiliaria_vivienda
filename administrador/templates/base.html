@@ -1,0 +1,72 @@
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Inmobiliaria vivienda</title>
+        <link href="{% static "reset.css" %}" rel="stylesheet" type="text/css" />
+        <link href="{% static "style.css" %}" rel="stylesheet" type="text/css" />
+        <link href="{% static "colors_css/color1.css" %}" rel="stylesheet" type="text/css" />
+        <link href='http://fonts.googleapis.com/css?family=Oxygen' rel="stylesheet" type="text/css" />
+
+        {% block aditional_styles %}{% endblock %}
+    </head>
+    <body>
+        <div id="top">
+            <a href="{% url 'home' %}">
+                <div id="logo" style="background: url({% static "img/logo.png" %}) no-repeat;"></div>
+            </a>
+            <div id="top_right">
+                <div id="menu2" class="menu">
+                    <ul>
+                        <li><a href="{% url 'home' %}">Principal</a></li>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="{% url 'catalogos' %}">Catalogo</a></li>
+                        <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                    </ul</div>
+                </div>
+                  
+                <div class="pagelinkdiv">Información general</div>
+                <div class="pagelinkdiv">Aprende más acerca de la inmobiliaria</div>
+                <div class="pagelinkdiv">Categorías de inmuebles en oferta</div>
+                <div class="pagelinkdiv">Conoce donde puedes localizarnos</div>
+            </div>
+            <!-- end top_right -->
+
+            <br style="clear:both" />
+            
+            <div class="socialicons">
+                <p> 
+                    <a href="http://www.facebook.com/javier.rocha.94849?fref=ts" target="_blank">
+                        <img src="{% static "img/social_icons/2.png" %}" alt="" class="social_icon" />
+                    </a> 
+                </p>
+            </div>
+        </div>
+        <div class="clean"></div>
+        <!-- end top -->
+        
+        {% block main_content%}{% endblock %}
+        
+        <div class="clean"></div>
+        <div id="footer">
+            <div class="footer_container">
+                <div class="bottom_menu">
+                    <ul>
+                        <li><a href="{% url 'home'%}">Principal</a></li>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="{% url 'catalogos' %}">Catalogo</a></li>
+                        <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                    </ul>
+                    <span class="copyrights">&copy; 2013 | Todos los derechos reservados</span> </div>
+                <div class="clean"></div>
+            </div>
+            <!-- end footer_container -->
+        </div>
+        <!-- end footer -->
+        <script type="text/javascript" src="{% static "scripts/jquery.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "scripts/animate.js" %}"></script> 
+        <script type="text/javascript" src="{% static "scripts/jquery.corner.js" %}"></script>
+        {% block aditional_scripts %}{% endblock %}
+    </body>
+</html>

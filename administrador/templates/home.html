@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load staticfiles thumbnail %}
+
+{% block aditional_styles %}
+        <link href="{% static "scripts/newsslider/slider.css" %}" rel="stylesheet" type="text/css" />
+        <link href="{% static "scripts/nivoslider/nivo-slider.css" %}" rel="stylesheet" type="text/css" media="screen" />
+{% endblock %}
+
+{% block main_content %}
+        <div class="slider_container">
+            <div class="slider_shadow_top"></div>
+            <div class="slider">
+                <div id="slider"> 
+                    <!-- {# <img src="http://placehold.it/950x400" alt="" />  #} -->
+                    <!--<a href="#"><img src="slides/2.jpg" alt="" /></a> -->
+                    {% for banner in banners %}
+                        {% thumbnail banner.imagen '950x400' crop='center' as im%}
+                            {% if banner.link%}
+                                <a href="{{ banner.link }}">
+                                    <img src="{{ im.url }}" />
+                                </a>
+                            {% else %}
+                                <img src="{{ im.url}}" />
+                            {% endif %}
+                        {% endthumbnail %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="slider_shadow_bottom"></div>
+        </div>
+        
+        <div id="container">
+            <div id="welcome">
+                <div class="about_text">
+                    <h1>En inmobiliaria vivienda, estamos seguros que usted encontrara el hogar que está buscando de una manera confiable, rápida y segura.</h1>
+                </div>
+                <!--empieza news-->
+                <div class="news">
+                    <div class="news_head">
+                        <h2>Ultimas noticias</h2>
+                    </div>
+                    <div class="controls">
+                        <img src="{% static "img/next.gif" %}" alt="" class="next_button" onmousedown="scrollContent('newsslider',-1)" onmouseup="cancelScroll('newsslider')" />
+                        <img src="{% static "img/prev.gif" %}" alt="" onmousedown="scrollContent('newsslider',1)" onmouseup="cancelScroll('newsslider')" /></div>
+                    <div class="newsslider">
+                        <div class="newsslidercontent" id="newsslider">
+                            {% for aviso in avisos %}
+                            <div id="newssection-{{forloop.counter}}" class="newssection upper">
+                                <div class="news_text">
+                                    <strong> {{ aviso.fecha_publicacion|date:'d/M/Y' }}</strong>
+                                    <p>{{ aviso.texto }}</p>
+                                </div>
+                            </div>
+                           {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <!-- end news -->
+            </div>
+            <!-- end welcome div -->
+        </div>
+        <!-- end container -->
+        <div class="clean"></div>
+        <div style="background: url({% static "img/shadow_bott.png" %}) no-repeat;" class="slider_shadow_bottom"></div>
+        <!-- end services -->
+        <div id="content">
+            <div class="left_column">
+                    <h2>Inmobiliaria vivienda</h2>
+                        Somos una empresa responsable dedicada a facilitar el camino hacia la realización de sus suenos, poniendo en venta las mejores propiedades para todos los alcances económicos, así como brindándole todas las facilidades para que no exista ningún obstáculo entre usted y sus intereses.</div>
+            <div class="right_column">
+                    <h2>Acerca de Nosotros</h2>
+                        Desea conocer mas sobre inmobiliaria vivienda? Conoce mas acerca de nosotros.
+                            <p style="float:right"><br />
+                                    <b><a href="#">Mas detalles</a></b></p>
+                            </div>
+        </div>
+        <!-- end content --> 
+{% endblock %}
+{% block aditional_scripts %}
+        <!--Home scripts-->
+        <script type="text/javascript" src="{% static "scripts/nivoslider/jquery.nivo.slider.pack.js" %}"></script>
+        <script type="text/javascript" src="{% static "scripts/newsslider/slider.js" %}"></script>
+        <script type="text/javascript">
+            jQuery.noConflict();
+            jQuery(window).load(function() {
+                jQuery('#slider').nivoSlider();
+                autoScroll('newsslider','newssection',5,true);
+            });
+        </script>
+        <script type="text/javascript">
+            jQuery.noConflict();
+            jQuery('.slider').corner("8px");
+        </script>
+{% endblock %}
