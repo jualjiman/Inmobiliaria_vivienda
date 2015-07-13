@@ -5,7 +5,12 @@ from sorl.thumbnail.shortcuts import get_thumbnail
 
 
 class BannerAdmin(admin.ModelAdmin):
-    list_display = ('miniatura', 'activo',)
+    list_display = (
+        'miniatura',
+        'fecha_publicacion',
+        'fecha_fin',
+        'activo',
+    )
 
     def miniatura(self, model_instance):
         return (
@@ -22,7 +27,13 @@ class BannerAdmin(admin.ModelAdmin):
 
 
 class InmuebleAdmin(admin.ModelAdmin):
-    list_display = ('miniatura', 'nombre', 'activo')
+    list_display = (
+        'miniatura',
+        'nombre',
+        'fecha_publicacion',
+        'fecha_fin',
+        'activo'
+    )
     search_fields = ('nombre', 'descripcion', )
 
     def miniatura(self, model_instance):
@@ -40,7 +51,12 @@ class InmuebleAdmin(admin.ModelAdmin):
 
 
 class AvisoAdmin(admin.ModelAdmin):
-    list_display = ('texto', 'activo')
+    list_display = (
+        'texto',
+        'fecha_publicacion',
+        'fecha_fin',
+        'activo'
+    )
     search_fields = ('texto', )
 
 admin.site.register(Banner, BannerAdmin)

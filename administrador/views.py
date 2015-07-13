@@ -20,7 +20,7 @@ class HomeView(ListView):
             Q(fecha_publicacion__lte=now),
             Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True),
             Q(activo=True)
-        )
+        ).order_by('fecha_publicacion')
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
@@ -41,10 +41,14 @@ class CatalogoListView(ListView):
 
     def get_categorias(self):
         categorias = Categoria.objects.all()
+        now = datetime.now()
 
         for categoria in categorias:
             inmuebles = Inmueble.objects.filter(
-                categoria=categoria
+                Q(fecha_publicacion__lte=now),
+                Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True),
+                Q(categoria=categoria),
+                Q(activo=True)
             )
 
             inmueble = inmuebles.order_by('?').first()
@@ -73,15 +77,15 @@ class CatalogoDetailView(DetailView):
     model = Categoria
 
     def get_inmuebles(self):
-        catalogo = self.get_object()
+        categoria = self.get_object()
         now = datetime.now()
 
         inmuebles = Inmueble.objects.filter(
             Q(fecha_publicacion__lte=now),
             Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True),
-            Q(categoria=catalogo),
+            Q(categoria=categoria),
             Q(activo=True)
-        ).order_by('-fecha_publicacion')
+        ).order_by('fecha_publicacion')
 
         return inmuebles
 
@@ -103,7 +107,12 @@ class CatalogoDetailView(DetailView):
 class InmuebleDetailView(DetailView):
     template_name = 'inmueble.html'
     context_object_name = 'inmueble'
-    model = Inmueble
+    now = datetime.now()
+    queryset = Inmueble.objects.filter(
+        Q(fecha_publicacion__lte=now),
+        Q(fecha_fin__gte=now) | Q(fecha_fin__isnull=True),
+        Q(activo=True)
+    ).order_by('fecha_publicacion')
 
 
 class ContactView(FormView):
