@@ -124,3 +124,9 @@ from django.conf import global_settings
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.core.context_processors.request',
 )
+
+# Local Settings import
+try:
+    from local_settings import *  # NOQA
+except:
+    pass
